@@ -26,7 +26,7 @@ const ProjectCard = (props) => {
   const { name, description, link, tags, cover_image } = props;
 
   return (
-    <Grid item xs={6}>
+    <Grid item xs={12} sm={6} lg={6}>
       {/* <CardActionArea component="a"> */}
       <Card
         sx={{
@@ -40,7 +40,8 @@ const ProjectCard = (props) => {
           component={"img"}
           sx={{ height: 120 }}
           image={`/img/project-covers/${cover_image}`}
-          alt={"Placeholder"} />
+          alt={"Placeholder"}
+        />
 
         <CardContent
           sx={{
@@ -76,9 +77,12 @@ const ProjectCard = (props) => {
               </Grid>
             ))}
           </Grid>
-          <Button 
-            variant={"outlined"} endIcon={<GitHubIcon />} sx={{ mt: 2, height: 0.13, width: 1 }}
-            onClick={() => openProjectSite(link)}>
+          <Button
+            variant={"outlined"}
+            endIcon={<GitHubIcon />}
+            sx={{ mt: 2, height: 0.13 }}
+            onClick={() => openProjectSite(link)}
+          >
             View Code
           </Button>
         </CardContent>
