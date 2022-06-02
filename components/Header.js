@@ -5,8 +5,8 @@ import { Toolbar, Button, IconButton, Typography, Link } from "@mui/material";
 const Header = () => {
   return (
     <>
-      <Toolbar sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <Typography
+      <Toolbar sx={{ borderBottom: 0, borderColor: "divider" }}>
+        {/* <Typography
           component="h2"
           variant="h4"
           color="inherit"
@@ -14,7 +14,7 @@ const Header = () => {
           noWrap
           sx={{ flex: 1 }}>
           Gerardo Gandeaga
-        </Typography>
+        </Typography> */}
       </Toolbar>
     </>
   );

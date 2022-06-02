@@ -10,24 +10,71 @@ import {
   CardActionArea,
   CardContent,
   CardMedia,
+  Tooltip,
   Paper,
   Chip,
   ListItem,
   styled,
+  createTheme,
+  ThemeProvider,
 } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
+
+const UNAVAILABLE_MSG = "Source not publicly available due to copyright."
+
+const projectCardTheme = createTheme({
+  typography: {
+    subtitle1: {
+      fontSize: 18,
+      fontWeight: 500
+    }
+  }
+})
 
 const openProjectSite = (url) => {
   console.log(url);
   window.open(url);
 };
 
-const ProjectCard = (props) => {
-  const { name, description, link, tags, cover_image } = props;
+const ViewCodeButton = ({ link }) => {
+  
+  // if the link is null then I probably can't release the code publically 
+  if (link === null) {
+    return (
+       <Tooltip title={UNAVAILABLE_MSG}>
+        <Button
+          variant={"outlined"}
+          color={"error"}
+          sx={{ mt: 2 }}
+          // onClick={() => openProjectSite(link)}
+        >
+          Unavailable 
+        </Button>
+      </Tooltip>
+    );
+  }
+  else {
+    return (
+      // <></>
+      <Tooltip title={link}>
+        <Button
+          variant={"outlined"}
+          endIcon={<GitHubIcon />}
+          sx={{  mt: 2 }}
 
+          onClick={() => openProjectSite(link)}
+        >
+          View Code
+        </Button>
+      </Tooltip>
+    );
+  }
+}
+
+const ProjectCard = ({ name, description, link, tags, cover_image }) => {
   return (
     <Grid item xs={12} sm={6} lg={6}>
-      {/* <CardActionArea component="a"> */}
+      <ThemeProvider theme={projectCardTheme}>
       <Card
         sx={{
           height: "100%",
@@ -38,8 +85,8 @@ const ProjectCard = (props) => {
       >
         <CardMedia
           component={"img"}
-          sx={{ height: 120 }}
-          image={`/img/project-covers/${cover_image}`}
+          sx={{ height: 150 }}
+          src={`/img/project-covers/${cover_image}`}
           alt={"Placeholder"}
         />
 
@@ -52,7 +99,6 @@ const ProjectCard = (props) => {
         >
           <Box sx={{ flex: 1 }}>
             <Typography
-              // component="h4"
               variant="subtitle1"
               color="inherit"
               align="left"
@@ -62,7 +108,6 @@ const ProjectCard = (props) => {
               {name}
             </Typography>
             <Typography
-              // component="h4"
               variant="body2"
               color="inherit"
               align="left"
@@ -77,17 +122,11 @@ const ProjectCard = (props) => {
               </Grid>
             ))}
           </Grid>
-          <Button
-            variant={"outlined"}
-            endIcon={<GitHubIcon />}
-            sx={{ mt: 2, height: 0.13 }}
-            onClick={() => openProjectSite(link)}
-          >
-            View Code
-          </Button>
+          <ViewCodeButton link={link} /> 
         </CardContent>
       </Card>
-      {/* </CardActionArea> */}
+
+      </ThemeProvider>
     </Grid>
   );
 };

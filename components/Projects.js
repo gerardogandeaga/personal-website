@@ -9,10 +9,10 @@ const Projects = (props) => {
   return (
     <Grid item xs={12} lg={7} md={6}>
       <Typography
-        // component="h4"
-        variant="h5"
+        variant="h4"
         color="inherit"
         align="center"
+        // fontWeight={500}
         noWrap
         sx={{ flex: 1, m: 2 }}
       >
