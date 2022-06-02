@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/gerardogandeaga/personal-website">
-    <img src="./public/img/project-covers/website.png" alt="Logo" width="220" height="80">
+    <img src="images/website.png" alt="Banner" width="220" height="80">
   </a>
 
 <h3 align="center">My Personal Website</h3>
