@@ -12,6 +12,8 @@
   <p align="center">
     This is the code for my personal website. For the time being, it is essentially a single landing page. But I adding more to the site, whether it's projects, personal updates, or interesting digital knick-knacks. Feel free to use my code if you’re looking to make your own site.
     <br />
+    <br />
+    <a href="https://ggandeaga.web.app/">https://ggandeaga.web.app</a>
     <!-- <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
     <br />

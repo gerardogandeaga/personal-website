@@ -1,9 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Image from "next/image";
 import { Avatar, Box, Container, Typography, Grid, Paper, Link } from "@mui/material";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { SocialIcon } from "react-social-icons";
 
 const SOCIAL_MEDIA_ICON_PADDING = 16;
